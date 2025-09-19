@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.kotlin.compose) // Using alias as per previous fix
 }
 
 android {
@@ -9,38 +10,66 @@ android {
 
     defaultConfig {
         applicationId = "com.adam.defendthecore"
-        minSdk = 24
+        minSdk = 35
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables { 
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            minifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11  // Updated
+        targetCompatibility = JavaVersion.VERSION_11  // Updated
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11" // Updated
     }
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+    composeOptions {
+        // kotlinCompilerExtensionVersion = "..." // BOM should handle this
+    }
+    packagingOptions { // Changed from packaging to packagingOptions for Groovy DSL
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(libs.androidx.core.ktx) // Using alias
+    implementation(libs.androidx.appcompat) // Using alias
+    implementation(libs.google.material) // Using alias
+    implementation(libs.androidx.constraintlayout) // Using alias
+
+    // Compose Dependencies
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    testImplementation(libs.junit) // Using alias
+    androidTestImplementation(libs.androidx.junit) // Using alias
+    androidTestImplementation(libs.androidx.espresso.core) // Using alias
+
+    // Compose Test Dependencies
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
