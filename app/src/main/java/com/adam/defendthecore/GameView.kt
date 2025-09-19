@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import androidx.lifecycle.MutableLiveData
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
@@ -21,6 +22,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
     @Volatile
     private var isPlaying: Boolean = false
     private var canvas: Canvas? = null
+    val gameStatsLiveData = MutableLiveData<GameStats>()
 
     // --- Game State Listener ---
     interface GameStateListener {
@@ -113,6 +115,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
         super.onSizeChanged(w, h, oldw, oldh)
         core = Core(x = w / 2f, y = h / 2f, health = maxHealth)
         gameStateListener?.onGameStateChanged(gameState)
+        updateGameStatsLiveData()
     }
 
     override fun run() {
@@ -207,6 +210,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             }
             enemies.removeAll(enemiesToRemove)
         }
+        updateGameStatsLiveData()
     }
 
     private fun draw() {
@@ -242,6 +246,10 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
     fun getWaveNumber(): Int = waveNumber
 
     fun getGameState(): GameState = gameState
+
+    private fun updateGameStatsLiveData() {
+        gameStatsLiveData.postValue(getGameStats())
+    }
 
     private fun getHealCost(): Int {
         if (!this::core.isInitialized) return 0
@@ -291,6 +299,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
         if (money >= cost && core.health < maxHealth) {
             money -= cost
             core.health = maxHealth
+            updateGameStatsLiveData()
         }
     }
 
@@ -301,6 +310,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             maxHealth += 25
             core.health = maxHealth
             healthCost = (healthCost * 1.5).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -310,6 +320,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             damageLevel++
             projectileDamage += 5
             damageCost = (damageCost * 1.8).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -319,6 +330,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             fireRateLevel++
             fireRatePerSecond *= 1.2f
             fireRateCost = (fireRateCost * 2.0).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -328,6 +340,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             damageResistanceLevel++
             damageResistance += 0.05f
             damageResistanceCost = (damageResistanceCost * 1.7).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -337,6 +350,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             moneyMultiplierLevel++
             moneyMultiplier += 0.1f
             moneyMultiplierCost = (moneyMultiplierCost * 2.2).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -346,6 +360,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             lifestealLevel++
             lifesteal += 0.01f
             lifestealCost = (lifestealCost * 1.6).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -355,6 +370,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             critChanceLevel++
             critChance += 0.05f
             critChanceCost = (critChanceCost * 1.8).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -364,6 +380,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             critDamageLevel++
             critDamage += 0.25f
             critDamageCost = (critDamageCost * 1.7).toInt()
+            updateGameStatsLiveData()
         }
     }
 
@@ -462,5 +479,6 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
         }
 
         gameState = GameState.WAVE_TRANSITION
+        updateGameStatsLiveData()
     }
 }
