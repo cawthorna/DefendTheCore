@@ -221,10 +221,15 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
 
     fun getGameStats() = GameStats(
         money, maxHealth, healthLevel, healthCost,
+        maxHealth + 25,
         projectileDamage, damageLevel, damageCost,
+        projectileDamage + 5,
         fireRatePerSecond, fireRateLevel, fireRateCost,
+        fireRatePerSecond * 1.2f,
         damageResistance, damageResistanceLevel, damageResistanceCost,
-        moneyMultiplier, moneyMultiplierLevel, moneyMultiplierCost
+        damageResistance + 0.05f,
+        moneyMultiplier, moneyMultiplierLevel, moneyMultiplierCost,
+        moneyMultiplier + 0.1f
     )
 
     fun upgradeHealth() {
