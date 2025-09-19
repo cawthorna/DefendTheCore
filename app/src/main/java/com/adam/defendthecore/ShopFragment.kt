@@ -9,6 +9,14 @@ import com.adam.defendthecore.databinding.FragmentShopBinding
 
 class ShopFragment : DialogFragment() {
 
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.9).toInt(),
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+    }
+
     private var _binding: FragmentShopBinding? = null
     private val binding get() = _binding!!
 
@@ -37,6 +45,8 @@ class ShopFragment : DialogFragment() {
         try {
             listener = context as ShopListener
         } catch (e: ClassCastException) {
+            System.err.println(e.toString())
+            System.err.println(e.stackTrace)
             throw ClassCastException((context.toString() +
                     " must implement ShopListener"))
         }
@@ -52,26 +62,41 @@ class ShopFragment : DialogFragment() {
     }
 
     fun updateStats(stats: GameStats) {
-        binding.moneyTextView.text = "Money: ${stats.money}"
+        binding.moneyTextView.text = getString(R.string.shop_money, stats.money)
 
-        binding.healthUpgradeTextView.text = "Core Health (Lvl ${stats.healthLevel}): ${stats.health}"
-        binding.healthUpgradeButton.text = "Buy (Cost: ${stats.healthCost})"
+        // Health Upgrade
+        binding.healthUpgradeLevelTextView.text = getString(R.string.shop_level, stats.healthLevel)
+        binding.healthUpgradeCurrentTextView.text = getString(R.string.shop_current_health, stats.health)
+        binding.healthUpgradeNextTextView.text = getString(R.string.shop_next_health, stats.nextHealth)
+        binding.healthUpgradeCostTextView.text = getString(R.string.shop_cost, stats.healthCost)
         binding.healthUpgradeButton.isEnabled = stats.money >= stats.healthCost
 
-        binding.damageUpgradeTextView.text = "Turret Damage (Lvl ${stats.damageLevel}): ${stats.damage}"
-        binding.damageUpgradeButton.text = "Buy (Cost: ${stats.damageCost})"
+        // Damage Upgrade
+        binding.damageUpgradeLevelTextView.text = getString(R.string.shop_level, stats.damageLevel)
+        binding.damageUpgradeCurrentTextView.text = getString(R.string.shop_current_damage, stats.damage)
+        binding.damageUpgradeNextTextView.text = getString(R.string.shop_next_damage, stats.nextDamage)
+        binding.damageUpgradeCostTextView.text = getString(R.string.shop_cost, stats.damageCost)
         binding.damageUpgradeButton.isEnabled = stats.money >= stats.damageCost
 
-        binding.fireRateUpgradeTextView.text = "Fire Rate (Lvl ${stats.fireRateLevel}): ${"%.2f".format(stats.fireRate)}/s"
-        binding.fireRateUpgradeButton.text = "Buy (Cost: ${stats.fireRateCost})"
+        // Fire Rate Upgrade
+        binding.fireRateUpgradeLevelTextView.text = getString(R.string.shop_level, stats.fireRateLevel)
+        binding.fireRateUpgradeCurrentTextView.text = getString(R.string.shop_current_fire_rate, stats.fireRate)
+        binding.fireRateUpgradeNextTextView.text = getString(R.string.shop_next_fire_rate, stats.nextFireRate)
+        binding.fireRateUpgradeCostTextView.text = getString(R.string.shop_cost, stats.fireRateCost)
         binding.fireRateUpgradeButton.isEnabled = stats.money >= stats.fireRateCost
 
-        binding.damageResistanceUpgradeTextView.text = "Dmg. Resist (Lvl ${stats.damageResistanceLevel}): ${"%.0f".format(stats.damageResistance * 100)}%"
-        binding.damageResistanceUpgradeButton.text = "Buy (Cost: ${stats.damageResistanceCost})"
+        // Damage Resistance Upgrade
+        binding.damageResistanceUpgradeLevelTextView.text = getString(R.string.shop_level, stats.damageResistanceLevel)
+        binding.damageResistanceUpgradeCurrentTextView.text = getString(R.string.shop_current_damage_resistance, stats.damageResistance * 100)
+        binding.damageResistanceUpgradeNextTextView.text = getString(R.string.shop_next_damage_resistance, stats.nextDamageResistance * 100)
+        binding.damageResistanceUpgradeCostTextView.text = getString(R.string.shop_cost, stats.damageResistanceCost)
         binding.damageResistanceUpgradeButton.isEnabled = stats.money >= stats.damageResistanceCost
 
-        binding.moneyMultiplierUpgradeTextView.text = "Money Gain (Lvl ${stats.moneyMultiplierLevel}): ${"%.1f".format(stats.moneyMultiplier)}x"
-        binding.moneyMultiplierUpgradeButton.text = "Buy (Cost: ${stats.moneyMultiplierCost})"
+        // Money Multiplier Upgrade
+        binding.moneyMultiplierUpgradeLevelTextView.text = getString(R.string.shop_level, stats.moneyMultiplierLevel)
+        binding.moneyMultiplierUpgradeCurrentTextView.text = getString(R.string.shop_current_money_multiplier, stats.moneyMultiplier)
+        binding.moneyMultiplierUpgradeNextTextView.text = getString(R.string.shop_next_money_multiplier, stats.nextMoneyMultiplier)
+        binding.moneyMultiplierUpgradeCostTextView.text = getString(R.string.shop_cost, stats.moneyMultiplierCost)
         binding.moneyMultiplierUpgradeButton.isEnabled = stats.money >= stats.moneyMultiplierCost
     }
 
