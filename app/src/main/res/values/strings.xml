@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Defend the Core</string>
     <string name="shop_money">Money: %1$d</string>
     <string name="shop_level">(Lvl %1$d)</string>
@@ -17,7 +17,7 @@
 
     <string name="shop_label_money_placeholder">Money: ---</string>
     <string name="shop_title_core_health">Core Health</string>
-    <string name="shop_label_level_placeholder">(Lvl --)</string>
+    <string name="shop_label_level_placeholder" tools:ignore="TypographyDashes">(Lvl --)</string>
     <string name="shop_label_current_placeholder">Current: ---</string>
     <string name="shop_label_next_placeholder">Next: ---</string>
     <string name="shop_button_buy">Buy</string>
