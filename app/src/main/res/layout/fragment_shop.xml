@@ -32,6 +32,8 @@
             android:id="@+id/healthUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="center"
             android:text="Buy (Cost: 50)" />
     </LinearLayout>
 
@@ -53,6 +55,8 @@
             android:id="@+id/damageUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="center"
             android:text="Buy (Cost: 75)" />
     </LinearLayout>
 
@@ -74,6 +78,8 @@
             android:id="@+id/fireRateUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="center"
             android:text="Buy (Cost: 100)" />
     </LinearLayout>
 
@@ -95,6 +101,8 @@
             android:id="@+id/damageResistanceUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="center"
             android:text="Buy (Cost: 120)" />
     </LinearLayout>
 
@@ -116,6 +124,8 @@
             android:id="@+id/moneyMultiplierUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="center"
             android:text="Buy (Cost: 150)" />
     </LinearLayout>
 
