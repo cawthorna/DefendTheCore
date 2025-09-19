@@ -9,6 +9,14 @@ import com.adam.defendthecore.databinding.FragmentShopBinding
 
 class ShopFragment : DialogFragment() {
 
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.9).toInt(),
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+    }
+
     private var _binding: FragmentShopBinding? = null
     private val binding get() = _binding!!
 
@@ -54,24 +62,39 @@ class ShopFragment : DialogFragment() {
     fun updateStats(stats: GameStats) {
         binding.moneyTextView.text = "Money: ${stats.money}"
 
-        binding.healthUpgradeTextView.text = "Core Health (Lvl ${stats.healthLevel}): ${stats.health}"
-        binding.healthUpgradeButton.text = "Buy (Cost: ${stats.healthCost})"
+        // Health Upgrade
+        binding.healthUpgradeLevelTextView.text = "(Lvl ${stats.healthLevel})"
+        binding.healthUpgradeCurrentTextView.text = "Current: ${stats.health}"
+        binding.healthUpgradeNextTextView.text = "Next: ${stats.nextHealth}"
+        binding.healthUpgradeCostTextView.text = "Cost: ${stats.healthCost}"
         binding.healthUpgradeButton.isEnabled = stats.money >= stats.healthCost
 
-        binding.damageUpgradeTextView.text = "Turret Damage (Lvl ${stats.damageLevel}): ${stats.damage}"
-        binding.damageUpgradeButton.text = "Buy (Cost: ${stats.damageCost})"
+        // Damage Upgrade
+        binding.damageUpgradeLevelTextView.text = "(Lvl ${stats.damageLevel})"
+        binding.damageUpgradeCurrentTextView.text = "Current: ${stats.damage}"
+        binding.damageUpgradeNextTextView.text = "Next: ${stats.nextDamage}"
+        binding.damageUpgradeCostTextView.text = "Cost: ${stats.damageCost}"
         binding.damageUpgradeButton.isEnabled = stats.money >= stats.damageCost
 
-        binding.fireRateUpgradeTextView.text = "Fire Rate (Lvl ${stats.fireRateLevel}): ${"%.2f".format(stats.fireRate)}/s"
-        binding.fireRateUpgradeButton.text = "Buy (Cost: ${stats.fireRateCost})"
+        // Fire Rate Upgrade
+        binding.fireRateUpgradeLevelTextView.text = "(Lvl ${stats.fireRateLevel})"
+        binding.fireRateUpgradeCurrentTextView.text = "Current: ${"%.2f".format(stats.fireRate)}/s"
+        binding.fireRateUpgradeNextTextView.text = "Next: ${"%.2f".format(stats.nextFireRate)}/s"
+        binding.fireRateUpgradeCostTextView.text = "Cost: ${stats.fireRateCost}"
         binding.fireRateUpgradeButton.isEnabled = stats.money >= stats.fireRateCost
 
-        binding.damageResistanceUpgradeTextView.text = "Dmg. Resist (Lvl ${stats.damageResistanceLevel}): ${"%.0f".format(stats.damageResistance * 100)}%"
-        binding.damageResistanceUpgradeButton.text = "Buy (Cost: ${stats.damageResistanceCost})"
+        // Damage Resistance Upgrade
+        binding.damageResistanceUpgradeLevelTextView.text = "(Lvl ${stats.damageResistanceLevel})"
+        binding.damageResistanceUpgradeCurrentTextView.text = "Current: ${"%.0f".format(stats.damageResistance * 100)}%"
+        binding.damageResistanceUpgradeNextTextView.text = "Next: ${"%.0f".format(stats.nextDamageResistance * 100)}%"
+        binding.damageResistanceUpgradeCostTextView.text = "Cost: ${stats.damageResistanceCost}"
         binding.damageResistanceUpgradeButton.isEnabled = stats.money >= stats.damageResistanceCost
 
-        binding.moneyMultiplierUpgradeTextView.text = "Money Gain (Lvl ${stats.moneyMultiplierLevel}): ${"%.1f".format(stats.moneyMultiplier)}x"
-        binding.moneyMultiplierUpgradeButton.text = "Buy (Cost: ${stats.moneyMultiplierCost})"
+        // Money Multiplier Upgrade
+        binding.moneyMultiplierUpgradeLevelTextView.text = "(Lvl ${stats.moneyMultiplierLevel})"
+        binding.moneyMultiplierUpgradeCurrentTextView.text = "Current: ${"%.1f".format(stats.moneyMultiplier)}x"
+        binding.moneyMultiplierUpgradeNextTextView.text = "Next: ${"%.1f".format(stats.nextMoneyMultiplier)}x"
+        binding.moneyMultiplierUpgradeCostTextView.text = "Cost: ${stats.moneyMultiplierCost}"
         binding.moneyMultiplierUpgradeButton.isEnabled = stats.money >= stats.moneyMultiplierCost
     }
 
