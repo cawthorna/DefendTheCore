@@ -58,7 +58,8 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
             when (newState) {
                 GameView.GameState.WAVE_TRANSITION -> {
                     binding.waveTransitionControls.visibility = View.VISIBLE
-                    binding.nextWaveButton.text = "Start Wave ${binding.gameView.getWaveNumber() + 1}"
+                    binding.nextWaveButton.text =
+                        getString(R.string.start_wave, binding.gameView.getWaveNumber() + 1)
                 }
                 GameView.GameState.PLAYING -> {
                     binding.waveTransitionControls.visibility = View.GONE

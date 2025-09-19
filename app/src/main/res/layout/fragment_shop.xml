@@ -10,7 +10,7 @@
         android:id="@+id/moneyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Money: 100"
+        android:text="@string/shop_label_money_placeholder"
         android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"/>
@@ -25,7 +25,7 @@
             android:id="@+id/healthUpgradeTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Core Health"
+            android:text="@string/shop_title_core_health"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="(Lvl 1)"
+            android:text="@string/shop_label_level_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/healthUpgradeTitleTextView"
             app:layout_constraintStart_toEndOf="@id/healthUpgradeTitleTextView"
             app:layout_constraintTop_toTopOf="@id/healthUpgradeTitleTextView" />
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Current: 100"
+            android:text="@string/shop_label_current_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/healthUpgradeTitleTextView" />
 
@@ -53,7 +53,7 @@
             android:id="@+id/healthUpgradeNextTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next: 125"
+            android:text="@string/shop_label_next_placeholder"
             app:layout_constraintStart_toStartOf="@+id/healthUpgradeCurrentTextView"
             app:layout_constraintTop_toBottomOf="@+id/healthUpgradeCurrentTextView" />
 
@@ -61,7 +61,7 @@
             android:id="@+id/healthUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buy"
+            android:text="@string/shop_button_buy"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Cost: 50"
+            android:text="@string/shop_label_cost_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/healthUpgradeButton"
             app:layout_constraintEnd_toStartOf="@id/healthUpgradeButton"
             app:layout_constraintTop_toTopOf="@id/healthUpgradeButton" />
@@ -94,7 +94,7 @@
             android:id="@+id/damageUpgradeTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Turret Damage"
+            android:text="@string/shop_title_turret_damage"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="(Lvl 1)"
+            android:text="@string/shop_label_level_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/damageUpgradeTitleTextView"
             app:layout_constraintStart_toEndOf="@id/damageUpgradeTitleTextView"
             app:layout_constraintTop_toTopOf="@id/damageUpgradeTitleTextView" />
@@ -114,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Current: 10"
+            android:text="@string/shop_label_current_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/damageUpgradeTitleTextView" />
 
@@ -122,7 +122,7 @@
             android:id="@+id/damageUpgradeNextTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next: 15"
+            android:text="@string/shop_label_next_placeholder"
             app:layout_constraintStart_toStartOf="@+id/damageUpgradeCurrentTextView"
             app:layout_constraintTop_toBottomOf="@+id/damageUpgradeCurrentTextView" />
 
@@ -130,7 +130,7 @@
             android:id="@+id/damageUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buy"
+            android:text="@string/shop_button_buy"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -140,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Cost: 75"
+            android:text="@string/shop_label_cost_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/damageUpgradeButton"
             app:layout_constraintEnd_toStartOf="@id/damageUpgradeButton"
             app:layout_constraintTop_toTopOf="@id/damageUpgradeButton" />
@@ -163,7 +163,7 @@
             android:id="@+id/fireRateUpgradeTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fire Rate"
+            android:text="@string/shop_title_fire_rate"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="(Lvl 1)"
+            android:text="@string/shop_label_level_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/fireRateUpgradeTitleTextView"
             app:layout_constraintStart_toEndOf="@id/fireRateUpgradeTitleTextView"
             app:layout_constraintTop_toTopOf="@id/fireRateUpgradeTitleTextView" />
@@ -183,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Current: 1.00/s"
+            android:text="@string/shop_label_current_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fireRateUpgradeTitleTextView" />
 
@@ -191,7 +191,7 @@
             android:id="@+id/fireRateUpgradeNextTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next: 1.20/s"
+            android:text="@string/shop_label_next_placeholder"
             app:layout_constraintStart_toStartOf="@+id/fireRateUpgradeCurrentTextView"
             app:layout_constraintTop_toBottomOf="@+id/fireRateUpgradeCurrentTextView" />
 
@@ -199,7 +199,7 @@
             android:id="@+id/fireRateUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buy"
+            android:text="@string/shop_button_buy"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -209,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Cost: 100"
+            android:text="@string/shop_label_cost_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/fireRateUpgradeButton"
             app:layout_constraintEnd_toStartOf="@id/fireRateUpgradeButton"
             app:layout_constraintTop_toTopOf="@id/fireRateUpgradeButton" />
@@ -232,7 +232,7 @@
             android:id="@+id/damageResistanceUpgradeTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dmg. Resistance"
+            android:text="@string/shop_title_dmg_resistance"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -242,7 +242,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="(Lvl 1)"
+            android:text="@string/shop_label_level_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/damageResistanceUpgradeTitleTextView"
             app:layout_constraintStart_toEndOf="@id/damageResistanceUpgradeTitleTextView"
             app:layout_constraintTop_toTopOf="@id/damageResistanceUpgradeTitleTextView" />
@@ -252,7 +252,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Current: 0%"
+            android:text="@string/shop_label_current_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/damageResistanceUpgradeTitleTextView" />
 
@@ -260,7 +260,7 @@
             android:id="@+id/damageResistanceUpgradeNextTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next: 5%"
+            android:text="@string/shop_label_next_placeholder"
             app:layout_constraintStart_toStartOf="@+id/damageResistanceUpgradeCurrentTextView"
             app:layout_constraintTop_toBottomOf="@+id/damageResistanceUpgradeCurrentTextView" />
 
@@ -268,7 +268,7 @@
             android:id="@+id/damageResistanceUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buy"
+            android:text="@string/shop_button_buy"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -278,7 +278,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Cost: 120"
+            android:text="@string/shop_label_cost_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/damageResistanceUpgradeButton"
             app:layout_constraintEnd_toStartOf="@id/damageResistanceUpgradeButton"
             app:layout_constraintTop_toTopOf="@id/damageResistanceUpgradeButton" />
@@ -301,7 +301,7 @@
             android:id="@+id/moneyMultiplierUpgradeTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Money Gain"
+            android:text="@string/shop_title_money_gain"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -311,7 +311,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="(Lvl 1)"
+            android:text="@string/shop_label_level_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/moneyMultiplierUpgradeTitleTextView"
             app:layout_constraintStart_toEndOf="@id/moneyMultiplierUpgradeTitleTextView"
             app:layout_constraintTop_toTopOf="@id/moneyMultiplierUpgradeTitleTextView" />
@@ -321,7 +321,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Current: 1.0x"
+            android:text="@string/shop_label_current_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/moneyMultiplierUpgradeTitleTextView" />
 
@@ -329,7 +329,7 @@
             android:id="@+id/moneyMultiplierUpgradeNextTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next: 1.1x"
+            android:text="@string/shop_label_next_placeholder"
             app:layout_constraintStart_toStartOf="@+id/moneyMultiplierUpgradeCurrentTextView"
             app:layout_constraintTop_toBottomOf="@+id/moneyMultiplierUpgradeCurrentTextView" />
 
@@ -337,7 +337,7 @@
             android:id="@+id/moneyMultiplierUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buy"
+            android:text="@string/shop_button_buy"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -347,7 +347,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Cost: 150"
+            android:text="@string/shop_label_cost_placeholder"
             app:layout_constraintBottom_toBottomOf="@id/moneyMultiplierUpgradeButton"
             app:layout_constraintEnd_toStartOf="@id/moneyMultiplierUpgradeButton"
             app:layout_constraintTop_toTopOf="@id/moneyMultiplierUpgradeButton" />

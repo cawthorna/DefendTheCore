@@ -13,4 +13,17 @@
     <string name="shop_next_damage_resistance">Next: %1$.0f%%</string>
     <string name="shop_current_money_multiplier">Current: %1$.1fx</string>
     <string name="shop_next_money_multiplier">Next: %1$.1fx</string>
+    <string name="start_wave">Start Wave %1$d</string>
+
+    <string name="shop_label_money_placeholder">Money: ---</string>
+    <string name="shop_title_core_health">Core Health</string>
+    <string name="shop_label_level_placeholder">(Lvl --)</string>
+    <string name="shop_label_current_placeholder">Current: ---</string>
+    <string name="shop_label_next_placeholder">Next: ---</string>
+    <string name="shop_button_buy">Buy</string>
+    <string name="shop_label_cost_placeholder">Cost: ---</string>
+    <string name="shop_title_turret_damage">Turret Damage</string>
+    <string name="shop_title_fire_rate">Fire Rate</string>
+    <string name="shop_title_dmg_resistance">Dmg. Resistance</string>
+    <string name="shop_title_money_gain">Money Gain</string>
 </resources>
