@@ -26,4 +26,25 @@
     <string name="shop_title_fire_rate">Fire Rate</string>
     <string name="shop_title_dmg_resistance">Dmg. Resistance</string>
     <string name="shop_title_money_gain">Money Gain</string>
+
+    <!-- Heal -->
+    <string name="shop_title_heal">Heal Core</string>
+    <string name="shop_button_heal">Heal</string>
+    <string name="shop_heal_cost">Cost: %1$d</string>
+    <string name="shop_heal_at_full_health">At full health</string>
+
+    <!-- Lifesteal -->
+    <string name="shop_title_lifesteal">Lifesteal</string>
+    <string name="shop_current_lifesteal">Current: %1$.0f%%</string>
+    <string name="shop_next_lifesteal">Next: %1$.0f%%</string>
+
+    <!-- Crit Chance -->
+    <string name="shop_title_crit_chance">Crit Chance</string>
+    <string name="shop_current_crit_chance">Current: %1$.0f%%</string>
+    <string name="shop_next_crit_chance">Next: %1$.0f%%</string>
+
+    <!-- Crit Damage -->
+    <string name="shop_title_crit_damage">Crit Damage</string>
+    <string name="shop_current_crit_damage">Current: %1$.2fx</string>
+    <string name="shop_next_crit_damage">Next: %1$.2fx</string>
 </resources>

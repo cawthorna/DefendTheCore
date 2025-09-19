@@ -15,6 +15,53 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Heal Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/healLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/healTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_title_heal"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/healButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_button_heal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/healCostTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/shop_label_cost_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/healButton"
+            app:layout_constraintEnd_toStartOf="@id/healButton"
+            app:layout_constraintTop_toTopOf="@id/healButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/healDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"/>
+
     <!-- Health Upgrade -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -351,6 +398,213 @@
             app:layout_constraintBottom_toBottomOf="@id/moneyMultiplierUpgradeButton"
             app:layout_constraintEnd_toStartOf="@id/moneyMultiplierUpgradeButton"
             app:layout_constraintTop_toTopOf="@id/moneyMultiplierUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Lifesteal Upgrade -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/lifestealUpgradeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_title_lifesteal"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lifestealUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/shop_label_level_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/lifestealUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/lifestealUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/lifestealUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/lifestealUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/shop_label_current_placeholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lifestealUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/lifestealUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_label_next_placeholder"
+            app:layout_constraintStart_toStartOf="@+id/lifestealUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/lifestealUpgradeCurrentTextView" />
+
+        <Button
+            android:id="@+id/lifestealUpgradeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_button_buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lifestealUpgradeCostTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/shop_label_cost_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/lifestealUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/lifestealUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/lifestealUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Crit Chance Upgrade -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/critChanceUpgradeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_title_crit_chance"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/critChanceUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/shop_label_level_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/critChanceUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/critChanceUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/critChanceUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/critChanceUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/shop_label_current_placeholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/critChanceUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/critChanceUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_label_next_placeholder"
+            app:layout_constraintStart_toStartOf="@+id/critChanceUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/critChanceUpgradeCurrentTextView" />
+
+        <Button
+            android:id="@+id/critChanceUpgradeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_button_buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/critChanceUpgradeCostTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/shop_label_cost_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/critChanceUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/critChanceUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/critChanceUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Crit Damage Upgrade -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/critDamageUpgradeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_title_crit_damage"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/critDamageUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/shop_label_level_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/critDamageUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/critDamageUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/critDamageUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/critDamageUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/shop_label_current_placeholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/critDamageUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/critDamageUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_label_next_placeholder"
+            app:layout_constraintStart_toStartOf="@+id/critDamageUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/critDamageUpgradeCurrentTextView" />
+
+        <Button
+            android:id="@+id/critDamageUpgradeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_button_buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/critDamageUpgradeCostTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/shop_label_cost_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/critDamageUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/critDamageUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/critDamageUpgradeButton" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

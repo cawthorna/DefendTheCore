@@ -58,11 +58,13 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
             when (newState) {
                 GameView.GameState.WAVE_TRANSITION -> {
                     binding.waveTransitionControls.visibility = View.VISIBLE
+                    binding.nextWaveButton.visibility = View.VISIBLE
                     binding.nextWaveButton.text =
                         getString(R.string.start_wave, binding.gameView.getWaveNumber() + 1)
                 }
                 GameView.GameState.PLAYING -> {
-                    binding.waveTransitionControls.visibility = View.GONE
+                    binding.waveTransitionControls.visibility = View.VISIBLE
+                    binding.nextWaveButton.visibility = View.GONE
                 }
                 GameView.GameState.GAME_OVER -> {
                     binding.waveTransitionControls.visibility = View.GONE
@@ -99,11 +101,32 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
         requestStatsUpdate()
     }
 
+    override fun onUpgradeLifesteal() {
+        binding.gameView.upgradeLifesteal()
+        requestStatsUpdate()
+    }
+
+    override fun onUpgradeCritChance() {
+        binding.gameView.upgradeCritChance()
+        requestStatsUpdate()
+    }
+
+    override fun onUpgradeCritDamage() {
+        binding.gameView.upgradeCritDamage()
+        requestStatsUpdate()
+    }
+
+    override fun onHeal() {
+        binding.gameView.healCore()
+        requestStatsUpdate()
+    }
+
     override fun requestStatsUpdate() {
         val shopFragment = supportFragmentManager.findFragmentByTag(ShopFragment.TAG) as? ShopFragment
         shopFragment?.let {
             val stats = binding.gameView.getGameStats()
-            it.updateStats(stats)
+            val gameState = binding.gameView.getGameState()
+            it.updateStats(stats, gameState)
         }
     }
 }

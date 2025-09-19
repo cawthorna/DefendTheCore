@@ -77,6 +77,18 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
     private var moneyMultiplierCost = 75
     private var moneyMultiplier = 1.0f
 
+    private var lifestealLevel = 1
+    private var lifestealCost = 150
+    private var lifesteal = 0.01f
+
+    private var critChanceLevel = 1
+    private var critChanceCost = 125
+    private var critChance = 0.05f
+
+    private var critDamageLevel = 1
+    private var critDamageCost = 175
+    private var critDamage = 1.5f
+
 
     // --- Wave Properties ---
     private var waveNumber = 0
@@ -175,13 +187,20 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
                         val dy = projectile.y - enemy.y
                         val distance = sqrt(dx * dx + dy * dy)
                         if (distance < projectile.radius + enemy.radius) {
-                            enemy.health -= projectileDamage
+                            val isCrit = Random.nextFloat() < critChance
+                            val damageDealt = if (isCrit) (projectileDamage * critDamage).toInt() else projectileDamage
+                            enemy.health -= damageDealt
                             projectileIterator.remove()
+
+                            val healthToGain = (damageDealt * lifesteal).toInt()
+                            if (healthToGain > 0) {
+                                core.health = (core.health + healthToGain).coerceAtMost(maxHealth)
+                            }
+
                             if (enemy.health <= 0) {
                                 enemiesToRemove.add(enemy)
                                 money += (enemy.moneyValue * moneyMultiplier).toInt()
                             }
-
                         }
                     }
                 }
@@ -222,18 +241,58 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
 
     fun getWaveNumber(): Int = waveNumber
 
+    fun getGameState(): GameState = gameState
+
+    private fun getHealCost(): Int {
+        if (!this::core.isInitialized) return 0
+        val missingHealth = maxHealth - core.health
+        return missingHealth * 2 // 2 money per health point
+    }
+
     fun getGameStats() = GameStats(
-        money, maxHealth, healthLevel, healthCost,
+        money,
+        core.health,
+        healthLevel,
+        healthCost,
         maxHealth + 25,
-        projectileDamage, damageLevel, damageCost,
+        projectileDamage,
+        damageLevel,
+        damageCost,
         projectileDamage + 5,
-        fireRatePerSecond, fireRateLevel, fireRateCost,
+        fireRatePerSecond,
+        fireRateLevel,
+        fireRateCost,
         fireRatePerSecond * 1.2f,
-        damageResistance, damageResistanceLevel, damageResistanceCost,
+        damageResistance,
+        damageResistanceLevel,
+        damageResistanceCost,
         damageResistance + 0.05f,
-        moneyMultiplier, moneyMultiplierLevel, moneyMultiplierCost,
-        moneyMultiplier + 0.1f
+        moneyMultiplier,
+        moneyMultiplierLevel,
+        moneyMultiplierCost,
+        moneyMultiplier + 0.1f,
+        lifesteal,
+        lifestealLevel,
+        lifestealCost,
+        lifesteal + 0.01f,
+        critChance,
+        critChanceLevel,
+        critChanceCost,
+        critChance + 0.05f,
+        critDamage,
+        critDamageLevel,
+        critDamageCost,
+        critDamage + 0.25f,
+        getHealCost()
     )
+
+    fun healCore() {
+        val cost = getHealCost()
+        if (money >= cost && core.health < maxHealth) {
+            money -= cost
+            core.health = maxHealth
+        }
+    }
 
     fun upgradeHealth() {
         if (money >= healthCost) {
@@ -278,6 +337,33 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             moneyMultiplierLevel++
             moneyMultiplier += 0.1f
             moneyMultiplierCost = (moneyMultiplierCost * 2.2).toInt()
+        }
+    }
+
+    fun upgradeLifesteal() {
+        if (money >= lifestealCost) {
+            money -= lifestealCost
+            lifestealLevel++
+            lifesteal += 0.01f
+            lifestealCost = (lifestealCost * 1.6).toInt()
+        }
+    }
+
+    fun upgradeCritChance() {
+        if (money >= critChanceCost && critChance < 0.5f) { // Cap at 50%
+            money -= critChanceCost
+            critChanceLevel++
+            critChance += 0.05f
+            critChanceCost = (critChanceCost * 1.8).toInt()
+        }
+    }
+
+    fun upgradeCritDamage() {
+        if (money >= critDamageCost) {
+            money -= critDamageCost
+            critDamageLevel++
+            critDamage += 0.25f
+            critDamageCost = (critDamageCost * 1.7).toInt()
         }
     }
 

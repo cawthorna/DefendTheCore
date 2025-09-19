@@ -21,5 +21,18 @@ data class GameStats(
     val moneyMultiplier: Float,
     val moneyMultiplierLevel: Int,
     val moneyMultiplierCost: Int,
-    val nextMoneyMultiplier: Float
+    val nextMoneyMultiplier: Float,
+    val lifesteal: Float,
+    val lifestealLevel: Int,
+    val lifestealCost: Int,
+    val nextLifesteal: Float,
+    val critChance: Float,
+    val critChanceLevel: Int,
+    val critChanceCost: Int,
+    val nextCritChance: Float,
+    val critDamage: Float,
+    val critDamageLevel: Int,
+    val critDamageCost: Int,
+    val nextCritDamage: Float,
+    val healCost: Int
 )
