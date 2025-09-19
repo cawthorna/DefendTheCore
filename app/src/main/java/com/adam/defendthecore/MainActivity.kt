@@ -45,6 +45,11 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
         binding.newGameButton.setOnClickListener {
             binding.gameView.resetGame()
         }
+
+        binding.gameView.gameStatsLiveData.observe(this) { stats ->
+            val shopFragment = supportFragmentManager.findFragmentByTag(ShopFragment.TAG) as? ShopFragment
+            shopFragment?.updateStats(stats, binding.gameView.getGameState())
+        }
     }
 
     override fun onResume() {
@@ -83,47 +88,38 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
 
     override fun onUpgradeHealth() {
         binding.gameView.upgradeHealth()
-        requestStatsUpdate()
     }
 
     override fun onUpgradeDamage() {
         binding.gameView.upgradeDamage()
-        requestStatsUpdate()
     }
 
     override fun onUpgradeFireRate() {
         binding.gameView.upgradeFireRate()
-        requestStatsUpdate()
     }
 
     override fun onUpgradeDamageResistance() {
         binding.gameView.upgradeDamageResistance()
-        requestStatsUpdate()
     }
 
     override fun onUpgradeMoneyMultiplier() {
         binding.gameView.upgradeMoneyMultiplier()
-        requestStatsUpdate()
     }
 
     override fun onUpgradeLifesteal() {
         binding.gameView.upgradeLifesteal()
-        requestStatsUpdate()
     }
 
     override fun onUpgradeCritChance() {
         binding.gameView.upgradeCritChance()
-        requestStatsUpdate()
     }
 
     override fun onUpgradeCritDamage() {
         binding.gameView.upgradeCritDamage()
-        requestStatsUpdate()
     }
 
     override fun onHeal() {
         binding.gameView.healCore()
-        requestStatsUpdate()
     }
 
     override fun requestStatsUpdate() {
