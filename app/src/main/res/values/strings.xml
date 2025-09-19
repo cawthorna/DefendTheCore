@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Defend the Core</string>
+    <string name="shop_money">Money: %1$d</string>
+    <string name="shop_level">(Lvl %1$d)</string>
+    <string name="shop_cost">Cost: %1$d</string>
+    <string name="shop_current_health">Current: %1$d</string>
+    <string name="shop_next_health">Next: %1$d</string>
+    <string name="shop_current_damage">Current: %1$d</string>
+    <string name="shop_next_damage">Next: %1$d</string>
+    <string name="shop_current_fire_rate">Current: %1$.2f/s</string>
+    <string name="shop_next_fire_rate">Next: %1$.2f/s</string>
+    <string name="shop_current_damage_resistance">Current: %1$.0f%%</string>
+    <string name="shop_next_damage_resistance">Next: %1$.0f%%</string>
+    <string name="shop_current_money_multiplier">Current: %1$.1fx</string>
+    <string name="shop_next_money_multiplier">Next: %1$.1fx</string>
 </resources>
