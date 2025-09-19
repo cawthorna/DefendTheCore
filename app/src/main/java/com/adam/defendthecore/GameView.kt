@@ -166,7 +166,9 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
                 }
             }
 
-            projectiles.forEach { projectile ->
+            val projectileIterator = projectiles.iterator()
+            while (projectileIterator.hasNext()) {
+                val projectile = projectileIterator.next()
                 enemies.forEach { enemy ->
                     if (!enemiesToRemove.contains(enemy)) {
                         val dx = projectile.x - enemy.x
@@ -174,7 +176,7 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
                         val distance = sqrt(dx * dx + dy * dy)
                         if (distance < projectile.radius + enemy.radius) {
                             enemy.health -= projectileDamage
-                            projectiles.remove(projectile)
+                            projectileIterator.remove()
                             if (enemy.health <= 0) {
                                 enemiesToRemove.add(enemy)
                                 money += (enemy.moneyValue * moneyMultiplier).toInt()
@@ -221,15 +223,10 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
 
     fun getGameStats() = GameStats(
         money, maxHealth, healthLevel, healthCost,
-        maxHealth + 25,
         projectileDamage, damageLevel, damageCost,
-        projectileDamage + 5,
         fireRatePerSecond, fireRateLevel, fireRateCost,
-        fireRatePerSecond * 1.2f,
         damageResistance, damageResistanceLevel, damageResistanceCost,
-        damageResistance + 0.05f,
-        moneyMultiplier, moneyMultiplierLevel, moneyMultiplierCost,
-        moneyMultiplier + 0.1f
+        moneyMultiplier, moneyMultiplierLevel, moneyMultiplierCost
     )
 
     fun upgradeHealth() {
