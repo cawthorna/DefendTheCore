@@ -1,8 +1,11 @@
 package com.adam.defendthecore
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import com.adam.defendthecore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragment.ShopListener {
@@ -11,8 +14,23 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            binding.gameView.setPadding(0, insets.top, 0, 0)
+            binding.waveTransitionControls.setPadding(
+                binding.waveTransitionControls.paddingLeft,
+                binding.waveTransitionControls.paddingTop,
+                binding.waveTransitionControls.paddingRight,
+                insets.bottom
+            )
+
+            windowInsets
+        }
 
         binding.gameView.gameStateListener = this
 
