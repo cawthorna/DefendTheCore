@@ -47,4 +47,5 @@
     <string name="shop_title_crit_damage">Crit Damage</string>
     <string name="shop_current_crit_damage">Current: %1$.2fx</string>
     <string name="shop_next_crit_damage">Next: %1$.2fx</string>
+    <string name="new_game">New Game</string>
 </resources>

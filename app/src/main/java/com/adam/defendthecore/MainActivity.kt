@@ -41,6 +41,10 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
         binding.shopButton.setOnClickListener {
             ShopFragment().show(supportFragmentManager, ShopFragment.TAG)
         }
+
+        binding.newGameButton.setOnClickListener {
+            binding.gameView.resetGame()
+        }
     }
 
     override fun onResume() {
@@ -55,6 +59,7 @@ class MainActivity : AppCompatActivity(), GameView.GameStateListener, ShopFragme
 
     override fun onGameStateChanged(newState: GameView.GameState) {
         runOnUiThread {
+            binding.newGameButton.visibility = if (newState == GameView.GameState.GAME_OVER) View.VISIBLE else View.GONE
             when (newState) {
                 GameView.GameState.WAVE_TRANSITION -> {
                     binding.waveTransitionControls.visibility = View.VISIBLE

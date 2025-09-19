@@ -413,4 +413,54 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
         gameThread = Thread(this)
         gameThread?.start()
     }
+
+    fun resetGame() {
+        money = 100
+
+        healthLevel = 1
+        healthCost = 50
+        maxHealth = 100
+
+        damageLevel = 1
+        damageCost = 75
+        projectileDamage = 10
+
+        fireRateLevel = 1
+        fireRateCost = 100
+        fireRatePerSecond = 1.0f
+
+        damageResistanceLevel = 1
+        damageResistanceCost = 120
+        damageResistance = 0.0f
+
+        moneyMultiplierLevel = 1
+        moneyMultiplierCost = 75
+        moneyMultiplier = 1.0f
+
+        lifestealLevel = 1
+        lifestealCost = 150
+        lifesteal = 0.01f
+
+        critChanceLevel = 1
+        critChanceCost = 125
+        critChance = 0.05f
+
+        critDamageLevel = 1
+        critDamageCost = 175
+        critDamage = 1.5f
+
+        waveNumber = 0
+        enemiesToSpawnInWave = 0
+        timeSinceLastSpawn = 0L
+        timeSinceLastShot = 0L
+
+        enemies.clear()
+        projectiles.clear()
+
+        if (this::core.isInitialized) {
+            core.health = maxHealth
+        }
+
+        gameState = GameState.WAVE_TRANSITION
+    }
 }
