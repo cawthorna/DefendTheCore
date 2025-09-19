@@ -194,10 +194,11 @@ class GameView(context: Context, attrs: AttributeSet?) : SurfaceView(context, at
             canvas?.let {
                 it.drawRect(0f, 0f, it.width.toFloat(), it.height.toFloat(), backgroundPaint)
                 if (this::core.isInitialized) {
+                    val topPadding = paddingTop.toFloat()
                     it.drawCircle(core.x, core.y, core.radius, corePaint)
-                    it.drawText("Health: ${core.health} / $maxHealth", 20f, 60f, textPaint)
-                    it.drawText("Wave: $waveNumber", width - 200f, 60f, textPaint)
-                    it.drawText("Money: $money", 20f, 120f, textPaint)
+                    it.drawText("Health: ${core.health} / $maxHealth", 20f, 60f + topPadding, textPaint)
+                    it.drawText("Wave: $waveNumber", width - 200f, 60f + topPadding, textPaint)
+                    it.drawText("Money: $money", 20f, 120f + topPadding, textPaint)
                 }
                 enemies.forEach { enemy -> it.drawCircle(enemy.x, enemy.y, enemy.radius, enemy.paint) }
                 projectiles.forEach { p -> it.drawCircle(p.x, p.y, p.radius, projectilePaint) }
