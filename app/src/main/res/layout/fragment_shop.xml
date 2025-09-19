@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -15,118 +17,341 @@
         android:layout_marginBottom="16dp"/>
 
     <!-- Health Upgrade -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="16dp">
 
         <TextView
-            android:id="@+id/healthUpgradeTextView"
-            android:layout_width="0dp"
+            android:id="@+id/healthUpgradeTitleTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Core Health (Lvl 1): 100" />
+            android:text="Core Health"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/healthUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="(Lvl 1)"
+            app:layout_constraintBottom_toBottomOf="@id/healthUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/healthUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/healthUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/healthUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Current: 100"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/healthUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/healthUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next: 125"
+            app:layout_constraintStart_toStartOf="@+id/healthUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/healthUpgradeCurrentTextView" />
 
         <Button
             android:id="@+id/healthUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minLines="2"
-            android:gravity="center"
-            android:text="Buy (Cost: 50)" />
-    </LinearLayout>
-
-    <!-- Damage Upgrade -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+            android:text="Buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/damageUpgradeTextView"
-            android:layout_width="0dp"
+            android:id="@+id/healthUpgradeCostTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Turret Damage (Lvl 1): 10" />
+            android:layout_marginEnd="8dp"
+            android:text="Cost: 50"
+            app:layout_constraintBottom_toBottomOf="@id/healthUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/healthUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/healthUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Damage Upgrade -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/damageUpgradeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Turret Damage"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/damageUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="(Lvl 1)"
+            app:layout_constraintBottom_toBottomOf="@id/damageUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/damageUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/damageUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/damageUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Current: 10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/damageUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/damageUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next: 15"
+            app:layout_constraintStart_toStartOf="@+id/damageUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/damageUpgradeCurrentTextView" />
 
         <Button
             android:id="@+id/damageUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minLines="2"
-            android:gravity="center"
-            android:text="Buy (Cost: 75)" />
-    </LinearLayout>
-
-    <!-- Fire Rate Upgrade -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+            android:text="Buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/fireRateUpgradeTextView"
-            android:layout_width="0dp"
+            android:id="@+id/damageUpgradeCostTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Fire Rate (Lvl 1): 1/s" />
+            android:layout_marginEnd="8dp"
+            android:text="Cost: 75"
+            app:layout_constraintBottom_toBottomOf="@id/damageUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/damageUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/damageUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Fire Rate Upgrade -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/fireRateUpgradeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fire Rate"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fireRateUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="(Lvl 1)"
+            app:layout_constraintBottom_toBottomOf="@id/fireRateUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/fireRateUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/fireRateUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/fireRateUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Current: 1.00/s"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fireRateUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/fireRateUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next: 1.20/s"
+            app:layout_constraintStart_toStartOf="@+id/fireRateUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/fireRateUpgradeCurrentTextView" />
 
         <Button
             android:id="@+id/fireRateUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minLines="2"
-            android:gravity="center"
-            android:text="Buy (Cost: 100)" />
-    </LinearLayout>
-
-    <!-- Damage Resistance Upgrade -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+            android:text="Buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/damageResistanceUpgradeTextView"
-            android:layout_width="0dp"
+            android:id="@+id/fireRateUpgradeCostTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Dmg. Resist (Lvl 1): 0%" />
+            android:layout_marginEnd="8dp"
+            android:text="Cost: 100"
+            app:layout_constraintBottom_toBottomOf="@id/fireRateUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/fireRateUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/fireRateUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Damage Resistance Upgrade -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/damageResistanceUpgradeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dmg. Resistance"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/damageResistanceUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="(Lvl 1)"
+            app:layout_constraintBottom_toBottomOf="@id/damageResistanceUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/damageResistanceUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/damageResistanceUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/damageResistanceUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Current: 0%"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/damageResistanceUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/damageResistanceUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next: 5%"
+            app:layout_constraintStart_toStartOf="@+id/damageResistanceUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/damageResistanceUpgradeCurrentTextView" />
 
         <Button
             android:id="@+id/damageResistanceUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minLines="2"
-            android:gravity="center"
-            android:text="Buy (Cost: 120)" />
-    </LinearLayout>
-
-    <!-- Money Multiplier Upgrade -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+            android:text="Buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/moneyMultiplierUpgradeTextView"
-            android:layout_width="0dp"
+            android:id="@+id/damageResistanceUpgradeCostTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Money Gain (Lvl 1): 1.0x" />
+            android:layout_marginEnd="8dp"
+            android:text="Cost: 120"
+            app:layout_constraintBottom_toBottomOf="@id/damageResistanceUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/damageResistanceUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/damageResistanceUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Money Multiplier Upgrade -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/moneyMultiplierUpgradeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Money Gain"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/moneyMultiplierUpgradeLevelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="(Lvl 1)"
+            app:layout_constraintBottom_toBottomOf="@id/moneyMultiplierUpgradeTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/moneyMultiplierUpgradeTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/moneyMultiplierUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/moneyMultiplierUpgradeCurrentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Current: 1.0x"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/moneyMultiplierUpgradeTitleTextView" />
+
+        <TextView
+            android:id="@+id/moneyMultiplierUpgradeNextTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next: 1.1x"
+            app:layout_constraintStart_toStartOf="@+id/moneyMultiplierUpgradeCurrentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/moneyMultiplierUpgradeCurrentTextView" />
 
         <Button
             android:id="@+id/moneyMultiplierUpgradeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minLines="2"
-            android:gravity="center"
-            android:text="Buy (Cost: 150)" />
-    </LinearLayout>
+            android:text="Buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/moneyMultiplierUpgradeCostTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Cost: 150"
+            app:layout_constraintBottom_toBottomOf="@id/moneyMultiplierUpgradeButton"
+            app:layout_constraintEnd_toStartOf="@id/moneyMultiplierUpgradeButton"
+            app:layout_constraintTop_toTopOf="@id/moneyMultiplierUpgradeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
